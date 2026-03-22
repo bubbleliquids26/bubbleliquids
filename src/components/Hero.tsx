@@ -92,7 +92,7 @@ const Hero = () => {
           }}
         >
           {/* inner padding container */}
-          <div className="relative z-10 p-6 sm:p-10 lg:p-12 min-h-[460px] md:min-h-[540px] flex flex-col justify-center">
+          <div className="relative z-10 p-6 sm:p-10 lg:p-12 min-h-[520px] md:min-h-[600px] flex flex-col justify-center">
             {/* Left text (only) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
