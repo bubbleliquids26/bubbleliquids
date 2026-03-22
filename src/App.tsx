@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
 import FloatingBubbles from "@/components/FloatingBubbles";
+import PromotionalPopup from "@/components/PromotionalPopup";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -24,6 +25,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <FloatingBubbles />
+          <PromotionalPopup />
           <Navbar />
           <CartDrawer />
           <Routes>
