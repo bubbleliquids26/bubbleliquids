@@ -1,5 +1,11 @@
-import { Link } from 'react-router-dom';
-import { Droplets, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Link } from "react-router-dom";
+import {
+  Droplets,
+  Instagram,
+  Twitter,
+  Facebook,
+  MessageCircle,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,7 +18,9 @@ const Footer = () => {
               <div className="gradient-primary rounded-xl p-2">
                 <Droplets className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="text-lg font-bold gradient-text">Bubble Liquid</span>
+              <span className="text-lg font-bold gradient-text">
+                Bubble Liquid
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Premium liquid cleaning solutions for every corner of your home.
@@ -23,9 +31,18 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-primary mb-4">Quick Links</h4>
             <ul className="space-y-2.5">
-              {['Home', 'Products', 'About Us'].map(label => (
+              {["Home", "Products", "About Us"].map((label) => (
                 <li key={label}>
-                  <Link to={label === 'Home' ? '/' : label === 'Products' ? '/products' : '#'} className="text-sm text-muted-foreground hover:text-secondary transition-colors">
+                  <Link
+                    to={
+                      label === "Home"
+                        ? "/"
+                        : label === "Products"
+                          ? "/products"
+                          : "#"
+                    }
+                    className="text-sm text-muted-foreground hover:text-secondary transition-colors"
+                  >
                     {label}
                   </Link>
                 </li>
@@ -40,6 +57,17 @@ const Footer = () => {
               <li>bubbleliquids2026@gmail.com</li>
               <li>+91 98765 43210</li>
               <li>Chennai, India</li>
+              <li className="pt-2">
+                <a
+                  href="https://wa.me/919176952152"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors font-medium"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Us
+                </a>
+              </li>
             </ul>
           </div>
 

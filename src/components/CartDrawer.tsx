@@ -46,7 +46,7 @@ const CartDrawer = () => {
       .join("\n");
     const message = `Hello Bubble Liquid,\nI would like to order:\n\n${itemsList}\n\nTotal Amount: ₹${subtotal.toFixed(0)}${promoNote}`;
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/?text=${encoded}`, "_blank");
+    window.open(`https://wa.me/919176952152?text=${encoded}`, "_blank");
   };
 
   return (
