@@ -9,10 +9,12 @@ import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
 import FloatingBubbles from "@/components/FloatingBubbles";
 import PromotionalPopup from "@/components/PromotionalPopup";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import ComboOffers from "./pages/ComboOffers";
+import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,7 @@ const App = () => (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <FloatingBubbles />
           <PromotionalPopup />
+          <WhatsAppButton />
           <Navbar />
           <CartDrawer />
           <Routes>
@@ -33,6 +36,7 @@ const App = () => (
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/combo-offers" element={<ComboOffers />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

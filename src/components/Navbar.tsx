@@ -26,6 +26,7 @@ const Navbar = () => {
     { to: '/', label: 'Home' },
     { to: '/products', label: 'Products' },
     { to: '/combo-offers', label: 'Combo Offers' },
+    { to: '/about-us', label: 'About Us' },
     { to: '#contact', label: 'Contact' },
   ];
 

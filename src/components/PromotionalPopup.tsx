@@ -7,12 +7,9 @@ const PromotionalPopup = () => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // Show popup after 2 seconds of page load
+    // Show popup after 2 seconds of page load (on every refresh)
     const timer = setTimeout(() => {
-      const hasSeenPopup = localStorage.getItem("promoPopupSeen");
-      if (!hasSeenPopup) {
-        setIsOpen(true);
-      }
+      setIsOpen(true);
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -26,7 +23,6 @@ const PromotionalPopup = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem("promoPopupSeen", "true");
   };
 
   return (
