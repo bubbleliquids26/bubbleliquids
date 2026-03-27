@@ -34,7 +34,12 @@ const PromotionalPopup = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={handleClose}
+            onClick={(e) => {
+              // Only close if clicking directly on backdrop, not on popup content
+              if (e.target === e.currentTarget) {
+                handleClose();
+              }
+            }}
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
           />
 
@@ -49,8 +54,11 @@ const PromotionalPopup = () => {
             <div className="relative w-full max-w-sm bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-3xl overflow-hidden shadow-2xl">
               {/* Close Button */}
               <button
-                onClick={handleClose}
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors z-10"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClose();
+                }}
+                className="absolute top-4 right-4 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors z-50 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Close"
               >
                 <X className="h-5 w-5 text-white" />

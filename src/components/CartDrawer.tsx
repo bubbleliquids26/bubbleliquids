@@ -297,6 +297,24 @@ const CartDrawer = () => {
                       </span>
                     </div>
                   </div>
+
+                  {/* Delivery Information */}
+                  <div className="mt-4 p-3 sm:p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                    <div className="flex items-start gap-2">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-blue-900 text-sm mb-1">Delivery Information</h4>
+                        <p className="text-blue-800 text-xs leading-relaxed">
+                          <strong>Free delivery</strong> up to 3 kms radius. 
+                          Additional delivery charges applicable for locations beyond 3 kms based on distance.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Fixed bottom actions — does not shrink cart lines */}
