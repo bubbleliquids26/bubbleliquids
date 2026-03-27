@@ -55,9 +55,8 @@ const combos = [
     name: "Premium Cleaning",
     products: [
       "detergent-ultra",
-      "dish-wash",
       "floor-cleaner",
-      "fabric-conditioner",
+      "phenyl",
     ],
     litre: "5 Litre",
     offerPrice: 1599,
@@ -66,7 +65,7 @@ const combos = [
   {
     id: "mini-combo",
     name: "Mini Combo",
-    products: ["detergent-smart", "dish-wash"],
+    products: ["phenyl", "floor-cleaner", "dish-wash"],
     litre: "1/2 Litre",
     offerPrice: 129,
     image: "/combo-offers/Mini-Combo.png",
