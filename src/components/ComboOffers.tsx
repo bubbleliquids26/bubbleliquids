@@ -8,9 +8,11 @@ export type ComboOffersVariant = "grid" | "carousel";
 
 /** Maps combo badge text → product size `ml` in `products.ts` */
 const LITRE_TO_ML: Record<string, number> = {
-  "1/2 Litre": 500,
-  "1 Litre": 1000,
-  "5 Litre": 5000,
+  "½ L": 500,
+  "1/2 L": 500,
+  "500 ml": 500,
+  "1 L": 1000,
+  "5 L": 5000,
 };
 
 function getSizeForComboVolume(
@@ -38,36 +40,36 @@ const combos = [
     id: "laundry-combo",
     name: "Laundry Combo",
     products: ["detergent-ultra", "detergent-smart", "fabric-conditioner"],
-    litre: "1 Litre",
-    offerPrice: 329,
+    litre: "1 L",
+    actualPrice: 386,
+    offerPrice: 355,
     image: "/combo-offers/Laundry-Combo.png",
   },
   {
     id: "basic-home-care",
     name: "Basic Home Care",
     products: ["dish-wash", "detergent-smart", "phenyl"],
-    litre: "1 Litre",
-    offerPrice: 279,
+    litre: "1 L",
+    actualPrice: 337,
+    offerPrice: 299,
     image: "/combo-offers/Basic-Home-Care.png",
   },
   {
     id: "premium-cleaning",
     name: "Premium Cleaning",
-    products: [
-      "detergent-ultra",
-      "floor-cleaner",
-      "phenyl",
-    ],
-    litre: "5 Litre",
-    offerPrice: 1599,
+    products: ["detergent-ultra", "floor-cleaner", "phenyl"],
+    litre: "5 L",
+    actualPrice: 1237,
+    offerPrice: 1099,
     image: "/combo-offers/Premium-Cleaning.png",
   },
   {
     id: "mini-combo",
     name: "Mini Combo",
     products: ["phenyl", "floor-cleaner", "dish-wash"],
-    litre: "1/2 Litre",
-    offerPrice: 129,
+    litre: "500 ml",
+    actualPrice: 207,
+    offerPrice: 189,
     image: "/combo-offers/Mini-Combo.png",
   },
   {
@@ -79,7 +81,8 @@ const combos = [
       "fabric-conditioner",
       "floor-cleaner",
     ],
-    litre: "5 Litre",
+    litre: "5 L",
+    actualPrice: 1739,
     offerPrice: 1499,
     image: "/combo-offers/Family-Monthly.png",
   },
@@ -87,8 +90,9 @@ const combos = [
     id: "economy-bulk",
     name: "Economy Bulk",
     products: ["detergent-ordinary", "dish-wash"],
-    litre: "5 Litre",
-    offerPrice: 229,
+    litre: "5 L",
+    actualPrice: 989,
+    offerPrice: 879,
     image: "/combo-offers/Economy-Bulk.png",
   },
   {
@@ -99,10 +103,10 @@ const combos = [
       "floor-cleaner",
       "dish-wash",
       "detergent-ordinary",
-      "phenyl",
     ],
-    litre: "1/2 Litre",
-    offerPrice: 79,
+    litre: "½ L",
+    actualPrice: 309,
+    offerPrice: 269,
     image: "/combo-offers/Trial-Combo.png",
   },
 ] as const;
@@ -166,7 +170,7 @@ const ComboOffers = ({ variant = "grid" }: ComboOffersProps) => {
     i: number,
     keyPrefix: string,
   ) => {
-    const original = getComboCatalogTotal(combo.products, combo.litre);
+    const original = (combo as any).actualPrice ?? getComboCatalogTotal(combo.products, combo.litre);
     const comboProducts = getComboProducts(combo.products);
 
     const inner = (

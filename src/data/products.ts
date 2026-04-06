@@ -16,18 +16,19 @@ export interface Product {
 
 /** Card badge copy (`product.litre`) vs catalogue `sizes[].label` (e.g. "1 Ltr") */
 const LITRE_BADGE_TO_ML: Record<string, number> = {
-  "½ Litre": 500,
-  "1/2 Litre": 500,
-  "1 Litre": 1000,
-  "5 Litre": 5000,
+  "½ L": 500,
+  "1/2 L": 500,
+  "1 L": 1000,
+  "5 L": 5000,
+  "500 ml": 500,
 };
 
 /** Badge text for a variant row on the products page */
 export function mlToLitreBadge(ml: number): string {
-  if (ml === 500) return "½ Litre";
-  if (ml === 1000) return "1 Litre";
-  if (ml === 5000) return "5 Litre";
-  return "1 Litre";
+  if (ml === 500) return "½ L";
+  if (ml === 1000) return "1 L";
+  if (ml === 5000) return "5 L";
+  return "1 L";
 }
 
 /** ½ L & 1 L → `image` (/1-litre/…); 5 L → `largeImage` (/5-litre/…) */
@@ -71,16 +72,16 @@ export const products: Product[] = [
     basePrice: 79,
     category: "Laundry",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 79 },
-      { label: "1 Ltr", ml: 1000, price: 129 },
-      { label: "5 Ltr", ml: 5000, price: 499 },
+      { label: "½ L", ml: 500, price: 79 },
+      { label: "1 L", ml: 1000, price: 149 },
+      { label: "5 L", ml: 5000, price: 549 },
     ],
     grades: [{ label: "Ultra", priceMultiplier: 1 }],
     combos: [
       { name: "Family Pack", discount: 15, description: "Buy 3 get 15% off" },
       { name: "Mega Saver", discount: 25, description: "Buy 5 get 25% off" },
     ],
-    litre: "1 Litre",
+    litre: "1 L",
   },
   {
     id: "detergent-smart",
@@ -99,16 +100,16 @@ export const products: Product[] = [
     basePrice: 59,
     category: "Laundry",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 59 },
-      { label: "1 Ltr", ml: 1000, price: 109 },
-      { label: "5 Ltr", ml: 5000, price: 419 },
+      { label: "½ L", ml: 500, price: 59 },
+      { label: "1 L", ml: 1000, price: 129 },
+      { label: "5 L", ml: 5000, price: 449 },
     ],
     grades: [{ label: "Premium", priceMultiplier: 1 }],
     combos: [
       { name: "Value Pack", discount: 10, description: "Buy 2 get 10% off" },
       { name: "Bulk Saver", discount: 20, description: "Buy 4 get 20% off" },
     ],
-    litre: "½ Litre",
+    litre: "½ L",
   },
   {
     id: "detergent-ordinary",
@@ -124,18 +125,18 @@ export const products: Product[] = [
       "/product-details/detergent-liquid/3.png",
       "/product-details/detergent-liquid/4.png",
     ],
-    basePrice: 39,
+    basePrice: 29,
     category: "Laundry",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 39 },
-      { label: "1 Ltr", ml: 1000, price: 79 },
-      { label: "5 Ltr", ml: 5000, price: 349 },
+      { label: "½ L", ml: 500, price: 29 },
+      { label: "1 L", ml: 1000, price: 99 },
+      { label: "5 L", ml: 5000, price: 380 },
     ],
     grades: [{ label: "Standard", priceMultiplier: 1 }],
     combos: [
       { name: "Economy Pack", discount: 10, description: "Buy 3 get 10% off" },
     ],
-    litre: "1 Litre",
+    litre: "1 L",
   },
   {
     id: "dish-wash",
@@ -151,12 +152,12 @@ export const products: Product[] = [
       "/product-details/dishwash/3.png",
       "/product-details/dishwash/4.png",
     ],
-    basePrice: 69,
+    basePrice: 79,
     category: "Kitchen",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 69 },
-      { label: "1 Ltr", ml: 1000, price: 119 },
-      { label: "5 Ltr", ml: 5000, price: 469 },
+      { label: "½ L", ml: 500, price: 79 },
+      { label: "1 L", ml: 1000, price: 139 },
+      { label: "5 L", ml: 5000, price: 499 },
     ],
     grades: [{ label: "Standard", priceMultiplier: 1 }],
     combos: [
@@ -167,7 +168,7 @@ export const products: Product[] = [
   },
   {
     id: "fabric-conditioner",
-    name: "Bubble Fabric Freshner",
+    name: "Bubble Fabric Conditioner",
     description:
       "Luxuriously soft fabrics with long-lasting fragrance. Our fabric conditioner protects fibers, reduces wrinkles, and makes ironing easier. Leaves clothes feeling silky smooth.",
     shortDescription: "Soft fabrics, lasting fragrance",
@@ -179,12 +180,12 @@ export const products: Product[] = [
       "/product-details/fabric-freshner/3.png",
       "/product-details/fabric-freshner/4.png",
     ],
-    basePrice: 69,
+    basePrice: 79,
     category: "Laundry",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 69 },
-      { label: "1 Ltr", ml: 1000, price: 129 },
-      { label: "5 Ltr", ml: 5000, price: 469 },
+      { label: "½ L", ml: 500, price: 79 },
+      { label: "1 L", ml: 1000, price: 149 },
+      { label: "5 L", ml: 5000, price: 499 },
     ],
     grades: [{ label: "Standard", priceMultiplier: 1 }],
     combos: [
@@ -194,7 +195,7 @@ export const products: Product[] = [
         description: "Buy 2 get 12% off",
       },
     ],
-    litre: "½ Litre",
+    litre: "½ L",
   },
   {
     id: "floor-cleaner",
@@ -210,18 +211,18 @@ export const products: Product[] = [
       "/product-details/floor-cleaner/3.png",
       "/product-details/floor-cleaner/4.png",
     ],
-    basePrice: 49,
+    basePrice: 59,
     category: "Home",
     sizes: [
-      { label: "½ Ltr", ml: 500, price: 49 },
-      { label: "1 Ltr", ml: 1000, price: 100 },
-      { label: "5 Ltr", ml: 5000, price: 419 },
+      { label: "500 ml", ml: 500, price: 59 },
+      { label: "1 L", ml: 1000, price: 129 },
+      { label: "5 L", ml: 5000, price: 439 },
     ],
     grades: [{ label: "Standard", priceMultiplier: 1 }],
     combos: [
       { name: "Home Care Set", discount: 12, description: "Buy 2 get 12% off" },
     ],
-    litre: "1 Litre",
+    litre: "1 L",
   },
   {
     id: "phenyl",
@@ -237,11 +238,11 @@ export const products: Product[] = [
       "/product-details/perfumed-phenyl/3.png",
       "/product-details/perfumed-phenyl/4.png",
     ],
-    basePrice: 79,
+    basePrice: 69,
     category: "Home",
     sizes: [
-      { label: "1 Ltr", ml: 1000, price: 79 },
-      { label: "5 Ltr", ml: 5000, price: 229 },
+      { label: "1 L", ml: 1000, price: 69 },
+      { label: "5 L", ml: 5000, price: 249 },
     ],
     grades: [{ label: "Standard", priceMultiplier: 1 }],
     combos: [
@@ -251,7 +252,7 @@ export const products: Product[] = [
         description: "Buy 2 get 10% off",
       },
     ],
-    litre: "1 Litre",
+    litre: "1 L",
   },
 ];
 

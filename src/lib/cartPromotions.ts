@@ -4,18 +4,18 @@ import type { CartItem } from "@/contexts/CartContext";
 export const CART_PROMO_TIERS = [
   {
     min: 499,
-    label: "½ litre bottle",
-    description: "Any ½ litre bottle free",
+    label: "½ L bottle",
+    description: "Any ½ L bottle free",
   },
   {
     min: 999,
-    label: "1 litre bottle",
-    description: "Any 1 litre bottle product free",
+    label: "1 L bottle",
+    description: "Any 1 L bottle product free",
   },
   {
     min: 1799,
-    label: "5 litre bottle",
-    description: "Any 5 litre liquid free",
+    label: "5 L bottle",
+    description: "Any 5 L liquid free",
   },
 ] as const;
 

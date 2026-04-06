@@ -54,16 +54,16 @@ function interleaveVariantsMixedBuckets(): ProductVariant[] {
 }
 
 const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
-const litreOptions = ['All', '½ Litre', '1 Litre', '5 Litre'] as const;
+const litreOptions = ['All', '½ L', '1 L', '5 L'] as const;
 
 type LitreFilter = (typeof litreOptions)[number];
 
 function sizeMatchesLitreFilter(sizeMl: number, filter: LitreFilter): boolean {
   if (filter === 'All') return true;
-  if (filter === '½ Litre') return sizeMl === 500;
-  if (filter === '1 Litre') return sizeMl === 1000;
-  if (filter === '5 Litre') return sizeMl === 5000;
-  return true;
+  if (filter === '½ L') return sizeMl === 500;
+  if (filter === '1 L') return sizeMl === 1000;
+  if (filter === '5 L') return sizeMl === 5000;
+  return false;
 }
 
 const Products = () => {
