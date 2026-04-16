@@ -30,7 +30,7 @@ const Navbar = () => {
     { to: '/products', label: 'Products' },
     { to: '/combo-offers', label: 'Combo Offers' },
     { to: '/about-us', label: 'About Us' },
-    { to: '#contact', label: 'Contact' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   const isActive = (path: string) => pathname === path;
