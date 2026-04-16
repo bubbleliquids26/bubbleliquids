@@ -11,7 +11,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: "Bubble Liquid — Premium Cleaning Solutions",
+  metadataBase: new URL("https://bubbleliquids.com"),
+  title: {
+    default: "Bubble Liquid — Premium Cleaning Solutions",
+    template: "%s | Bubble Liquid"
+  },
   description: "Premium liquid cleaning solutions for everyday needs. Shop detergents, dishwash, floor cleaners and more.",
   openGraph: {
     title: "Bubble Liquid — Premium Cleaning Solutions",
@@ -44,6 +48,23 @@ export default function RootLayout({
           <Footer />
           <Toaster />
           <Sonner />
+          {/* AEO: Structured Data for the whole site */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Bubble Liquids",
+                "url": "https://bubbleliquids.com",
+                "logo": "https://bubbleliquids.com/logo.png",
+                "sameAs": [
+                  "https://www.facebook.com/bubbleliquids",
+                  "https://www.instagram.com/bubbleliquids"
+                ]
+              })
+            }}
+          />
         </Providers>
       </body>
     </html>
