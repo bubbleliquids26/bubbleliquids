@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+
 import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -55,8 +58,7 @@ const ProductCard = ({ product, index = 0, variantMl }: ProductCardProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <Link
-        to={`/products/${product.id}?size=${cardSize.ml}`}
+      <Link href={`/products/${product.id}?size=${cardSize.ml}`}
         className="block group"
       >
         <div className="glass-card rounded-2xl overflow-hidden hover:shadow-product-hover transition-all duration-300 hover:-translate-y-2 relative">

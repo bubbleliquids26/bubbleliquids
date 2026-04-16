@@ -1,6 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+
 import { products } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 
@@ -262,8 +265,7 @@ const ComboOffers = ({ variant = "grid" }: ComboOffersProps) => {
           </h2>
           <div className="w-16 h-1 gradient-primary rounded-full mx-auto mb-4" />
           {variant === "carousel" && (
-            <Link
-              to="/combo-offers"
+            <Link href="/combo-offers"
               className="text-sm font-medium text-secondary hover:underline"
             >
               View all combos

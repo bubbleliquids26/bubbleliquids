@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+
 import {
   Droplets,
   Instagram,
@@ -14,7 +15,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="gradient-primary rounded-xl p-2">
                 <Droplets className="h-5 w-5 text-primary-foreground" />
               </div>
@@ -33,8 +34,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {["Home", "Products", "About Us"].map((label) => (
                 <li key={label}>
-                  <Link
-                    to={
+                  <Link href={
                       label === "Home"
                         ? "/"
                         : label === "Products"

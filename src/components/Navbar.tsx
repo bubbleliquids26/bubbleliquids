@@ -1,5 +1,8 @@
+"use client";
+
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import { ShoppingCart, Menu, X, Droplets } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +11,7 @@ const Navbar = () => {
   const { totalItems, setIsOpen } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [pathname]);
 
   const links = [
     { to: '/', label: 'Home' },
@@ -30,7 +33,7 @@ const Navbar = () => {
     { to: '#contact', label: 'Contact' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
@@ -41,7 +44,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
            <img src="/logo.png" alt="Bubble Liquid" className="h-12 w-10" />
             <span className="text-lg font-bold gradient-text">Bubble Liquids</span>
           </Link>
@@ -49,9 +52,8 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map(link => (
-              <Link
-                key={link.to}
-                to={link.to}
+              <Link key={link.to}
+                href={link.to}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   isActive(link.to) ? 'text-primary' : 'text-gray-600'
                 }`}
@@ -101,9 +103,8 @@ const Navbar = () => {
           >
             <div className="px-6 py-4 space-y-2">
               {links.map(link => (
-                <Link
-                  key={link.to}
-                  to={link.to}
+                <Link key={link.to}
+                  href={link.to}
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive(link.to) ? 'bg-green-50 text-primary' : 'text-gray-600 hover:bg-gray-50'

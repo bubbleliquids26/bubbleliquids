@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -111,14 +114,12 @@ const Hero = () => {
                 {heroBanners[currentImage].subtext}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-fit">
-                <Link
-                  to="/products"
+                <Link href="/products"
                   className="gradient-primary text-primary-foreground px-8 py-3.5 rounded-2xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all hover:shadow-lg hover:shadow-secondary/25 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Shop Now <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  to="/products"
+                <Link href="/products"
                   className="border-2 border-primary text-primary px-8 py-3.5 rounded-2xl font-semibold text-sm hover:bg-primary hover:text-primary-foreground transition-all hover:scale-[1.02] active:scale-[0.98] text-center flex items-center justify-center"
                 >
                   View Products

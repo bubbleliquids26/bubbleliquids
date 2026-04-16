@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'framer-motion';
 import { Award, IndianRupee, MessageCircle } from 'lucide-react';
 

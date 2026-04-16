@@ -263,18 +263,15 @@ export const getProductImage = (imageKey: string) => {
     return imageKey;
   }
 
-  // Fallback: support older pattern-based assets like "product-*.png"
-  const images: Record<string, string> = {};
-  const modules = import.meta.glob("@/assets/product-*.png", {
-    eager: true,
-    query: "?url",
-    import: "default",
-  });
-
-  for (const path in modules) {
-    const key = path.replace("/src/assets/", "").replace(".png", "");
-    images[key] = modules[path] as string;
-  }
+  // Next.js fallback since import.meta.glob is Vite-specific
+  const images: Record<string, string> = {
+    "product-detergent": "/assets/product-detergent.png",
+    "product-dishwash": "/assets/product-dishwash.png",
+    "product-floor-cleaner": "/assets/product-floor-cleaner.png",
+    "product-glass-cleaner": "/assets/product-glass-cleaner.png",
+    "product-handwash": "/assets/product-handwash.png",
+    "product-toilet-cleaner": "/assets/product-toilet-cleaner.png"
+  };
 
   return images[imageKey] || "";
 };
